@@ -1,0 +1,17 @@
+{
+  "name": "music_downloader_app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/puppeteer": "^7.0.4",
+    "puppeteer": "^23.2.0",
+    "typescript": "^5.5.4"
+  }
+}
