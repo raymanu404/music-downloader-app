@@ -1,5 +1,6 @@
 import puppeteer, { Browser, Page, ElementHandle } from "puppeteer"
 import path from "path"
+import { WINDOW_HEIGHT_CONST, WINDOW_WIDTH_CONST } from "../helpers/constants"
 
 // Define variables with explicit types
 let browser: Browser | undefined
@@ -7,24 +8,22 @@ let page: Page | undefined
 
 const mp3YtWebsiteURL = "https://ytmp3s.nu/6ufl/"
 const urlInputElementId = "#url"
-// const ytMusicUrlToDownload = [
-//   "https://youtu.be/oAeotgCHL3E?si=TtBeOgL40ZZp9Nwh",
-//   "https://youtu.be/oAeotgCHL3E?si=JXJKfBrrq_uXinWD",
-//   "https://youtu.be/U92pcsPsQpI?si=cvROlXNe9gFQZyZ1",
-// ]
+const ytMusicUrlToDownload = [
+  "https://youtu.be/oAeotgCHL3E?si=TtBeOgL40ZZp9Nwh",
+  "https://youtu.be/oAeotgCHL3E?si=JXJKfBrrq_uXinWD",
+  "https://youtu.be/U92pcsPsQpI?si=cvROlXNe9gFQZyZ1",
+]
 const ytMusicUrlToDownload1 = "https://youtu.be/oAeotgCHL3E?si=TtBeOgL40ZZp9Nwh"
 const ytMusicUrlToDownload2 = "https://youtu.be/oAeotgCHL3E?si=JXJKfBrrq_uXinWD"
 const ytMusicUrlToDownload3 = "https://youtu.be/U92pcsPsQpI?si=cvROlXNe9gFQZyZ1"
 
 const convertBtnElementId = `input[type="submit"][value="Convert"]`
-const WINDOW_WIDTH_CONST = `1919`
-const WINDOW_HEIGHT_CONST = `1048`
+
 const downloadBtnSelector = `a ::-p-text("Download")`
 const convertAgainBtnSelector = `a ::-p-text("Convert next")`
 
 const downloadYtMusicHandler = async (ytMusicUrlToDownload: string) => {
   // Launch browser
-
   //TODO: try to do in same browser tab page, just to wait for the elements to be on screen
   browser = await puppeteer.launch({
     headless: false,
@@ -73,8 +72,7 @@ const downloadYtMusicHandler = async (ytMusicUrlToDownload: string) => {
     //TODO: download in specific file
     // const downloadPath = path.resolve(__dirname, "dnb")
     // console.log(downloadPath)
-
-    //TODO: try to do with more files and add some delays between the actions if is needed
+    // TODO: try to do with more files and add some delays between the actions if is needed
     await downloadYtMusicHandler(ytMusicUrlToDownload1)
     // await downloadYtMusicHandler(ytMusicUrlToDownload2)
     // await downloadYtMusicHandler(ytMusicUrlToDownload3)
