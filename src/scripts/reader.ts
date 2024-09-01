@@ -9,14 +9,14 @@ let page: Page | undefined
 
 const playlistLinkUrl =
   "https://www.youtube.com/watch?v=utnmg39hcyk&list=PLAEfXHuNOsEZbiIkNKfRRq7lBkyOOQG5u&index=47"
-const song = "Delta Heavy & Friction - Babylon (ft. YOU)"
-const song2 = "Circadian - Energy In Motion"
+// const song = "Delta Heavy & Friction - Babylon (ft. YOU)"
+// const song2 = "Circadian - Energy In Motion"
 
-const artistList = artistListHandler(song2)
+// const artistList = artistListHandler(song2)
 
 const convertBtnElementId = `input[type="submit"][value="Convert"]`
 
-const downloadBtnSelector = `a ::-p-text("Download")`
+const linkUrlSelectorById = `a[id="wc-endpoint"]`
 const convertAgainBtnSelector = `a ::-p-text("Convert next")`
 
 const readYtMusicHandler = async (playlistLinkUrl: string) => {
@@ -40,7 +40,7 @@ const readYtMusicHandler = async (playlistLinkUrl: string) => {
 
   await page.goto(playlistLinkUrl)
 
-  const selectDownloadBtn = await page.locator(downloadBtnSelector).waitHandle()
+  const selectDownloadBtn = await page.locator(linkUrlSelectorById).waitHandle()
 
   console.log(selectDownloadBtn)
 }
