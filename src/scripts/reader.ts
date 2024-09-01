@@ -40,6 +40,9 @@ const readYtMusicHandler = async (playlistLinkUrl: string) => {
 
   await page.goto(playlistLinkUrl)
 
+  //wait until terms and conds appear on screen
+  //click on accept
+
   const selectDownloadBtn = await page.locator(linkUrlSelectorById).waitHandle()
 
   console.log(selectDownloadBtn)
